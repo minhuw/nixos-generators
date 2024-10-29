@@ -30,7 +30,7 @@
       fsType = "ext4";
     };
 
-    fileSystems."/boot" = {
+    fileSystems."/boot/efi" = {
       device = "/dev/disk/by-label/ESP";
       fsType = "vfat";
     };
@@ -42,6 +42,8 @@
     boot.loader.grub.efiSupport = true;
     boot.loader.grub.efiInstallAsRemovable = true;
     boot.loader.timeout = 0;
+
+    boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
     system.build.qcow-efi = import "${toString modulesPath}/../lib/make-disk-image.nix" {
       inherit lib config pkgs;
