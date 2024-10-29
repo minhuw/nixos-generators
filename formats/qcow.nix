@@ -32,7 +32,7 @@
     inherit lib config pkgs;
     diskSize = specialArgs.diskSize or "auto";
     format = "qcow2";
-    partitionTableType = "hybrid";
+    partitionTableType = "legacy";
   };
 
   formatAttr = "qcow";
